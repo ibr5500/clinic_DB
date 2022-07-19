@@ -25,3 +25,15 @@ Create table treatments (
   type VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL
 );
+
+-- Create invoices table
+Create table invoices (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  total_amount DECIMAL NOT NULL,
+  generated_at timestamp NOT NULL,
+  payed_at timestamp NOT NULL,
+  medical_history_id INT,
+  CONSTRAINT fk_medical_history
+      FOREIGN KEY(medical_history_id) 
+	    REFERENCES medical_histories(id)
+);
