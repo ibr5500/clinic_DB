@@ -37,3 +37,19 @@ Create table invoices (
       FOREIGN KEY(medical_history_id) 
 	    REFERENCES medical_histories(id)
 );
+
+-- Create invoice_items table
+CREATE TABLE invoice_items (
+  id INT PRIMARY KEY NOT NULL,
+  unit_price NUMERIC, 
+  quantity INT, 
+  total_price NUMERIC, 
+  invoice_id INT, 
+  CONSTRAINT fk_invoice
+  FOREIGN KEY (invoice_id)
+  REFERENCEs invoices(id),
+    treatment_id INT, 
+	CONSTRAINT fk_treatment
+	FOREIGN KEY (treatment_id)
+	REFERENCES treatments(id)
+);
