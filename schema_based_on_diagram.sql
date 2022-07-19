@@ -8,6 +8,8 @@ Create table patients (
   date_of_birth date NOT NULL
 );
 
+ALTER TABLE patients ADD PRIMARY KEY (id);
+
 -- Create medical_histories table
 CREATE TABLE medical_histories (
 	id INT PRIMARY KEY NOT NULL,
