@@ -19,4 +19,9 @@ CREATE TABLE medical_histories (
 		status VARCHAR
 );
 
-
+-- Create treatments table
+Create table treatments (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  type VARCHAR(100) NOT NULL,
+  name VARCHAR(100) NOT NULL
+);
