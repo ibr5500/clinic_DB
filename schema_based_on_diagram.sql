@@ -55,3 +55,14 @@ CREATE TABLE invoice_items (
 	FOREIGN KEY (treatment_id)
 	REFERENCES treatments(id)
 );
+
+-- Create join table with name records.
+CREATE TABLE records (
+    id int GENERATED ALWAYS AS IDENTITY,
+    medical_history_id int NOT NULL,
+    treatment_id int NOT null,
+    FOREIGN KEY (medical_history_id) 
+        REFERENCES medical_histories(id) ON DELETE CASCADE, 
+    FOREIGN KEY (treatment_id) 
+        REFERENCES treatments(id) ON DELETE CASCADE
+);
